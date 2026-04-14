@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Music Analyzer Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-copy">
+            <p class="eyebrow">Smart Music Analyzer Pro</p>
+            <h1>Analyze Spotify playlists like a true music strategist.</h1>
+            <p class="hero-text">Paste your playlist link, authenticate with Spotify, and unlock track insights, mood analysis, favorites, and artist distribution.</p>
+        </div>
+        <div class="hero-panel card glass-panel">
+            <p class="panel-label">🎧 Playlist Analyzer</p>
+            <div class="input-group">
+                <input id="playlistUrl" type="text" placeholder="Paste Spotify playlist link" autocomplete="off">
+                <input id="spotifyToken" type="password" placeholder="Spotify access token (Bearer)" autocomplete="off">
+            </div>
+            <button id="loadButton" onclick="loadSpotify()">Analyze Playlist</button>
+            <p class="note">Use your Spotify token from the Web API console. This project runs fully client-side for Vercel deployment.</p>
+        </div>
+    </div>
+
+    <div class="status-bar">
+        <div id="loading" class="loading-message">Ready to analyze your playlist.</div>
+    </div>
+
+    <div class="dashboard-grid">
+        <section class="card stat-card glass-panel animate-card">
+            <div class="card-header"><span>📈</span> Playlist Summary</div>
+            <div class="card-content" id="stats"></div>
+        </section>
+
+        <section class="card chart-card glass-panel animate-card">
+            <div class="card-header"><span>📊</span> Artist Distribution</div>
+            <div class="chart-frame"><canvas id="chart"></canvas></div>
+        </section>
+
+        <section class="card favorites-card glass-panel animate-card">
+            <div class="card-header"><span>💚</span> Favorites</div>
+            <div class="favorite-summary" id="favoriteSummary"></div>
+            <div class="favorite-list" id="favoriteList"></div>
+        </section>
+
+        <section class="card songs-card glass-panel animate-card">
+            <div class="song-header">
+                <div>
+                    <div class="card-header"><span>🎶</span> Song Library</div>
+                    <p class="subtext">Search within tracks and preview available audio snippets.</p>
+                </div>
+                <input id="search" type="text" placeholder="Search songs, artists, albums..." oninput="searchSongs()">
+            </div>
+            <div id="songs" class="song-grid"></div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>Smart Music Analyzer Pro • Built with HTML, CSS, JavaScript, Chart.js & Spotify Web API</p>
+        <p>Deployable on Vercel as a static frontend app. © 2026</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
