@@ -392,6 +392,21 @@ button:hover {
     font-size: 0.95rem;
 }
 
+.footer a {
+    color: #a5b4fc;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer a:hover {
+    color: #fff;
+}
+
+.footer-credit {
+    margin-top: 10px;
+    color: #cbd5e1;
+}
+
 @media (max-width: 1024px) {
     .hero {
         grid-template-columns: 1fr;
